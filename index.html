@@ -1,16 +1,72 @@
 <!DOCTYPE html>
-<html lang="zh">
-        <head>
-        <meta charset="UTF-8">
-        <title>You?</title>
-    </head>
-    <body>
-        <!--
-        <h1><i>I LONG FOR YOU</i></h1>
-        <h1><i>HOW I LONG FOR YOU</i></h1>
-        <p>C.S. Chen</p>
-        -->
-        <a href="content/content1.html"><i>test</i></a>
-        <a href="une.html">U N E</a>
-    </body>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没什么</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+        #countdown {
+            font-size: 2em;
+            color: #ffffff;
+        }
+        #message {
+            font-size: 5em;
+            color: #ffffff;
+            display: none;
+        }
+        #emj{
+            font-size: 1.5em;
+            color: #9e9e9e;
+            animation: spin 200s linear infinite;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">10</div>
+    <code id="message">
+        没什么就是我想你了
+    </code>
+    <code id="emj" class="ani">啊都是熟人就做得简陋一点
+        （肯定不是因为不会、、
+    </code>
+    
+ 
+    <script>
+        // 设置倒计时时间（秒）
+        let countdownTime = 10;
+        const countdownElement = document.getElementById('countdown');
+        const messageElement = document.getElementById('message');
+        const emj = document.getElementById("emj");
+ 
+        // 更新倒计时显示
+        function updateCountdown() {
+            if (countdownTime > 0) {
+                countdownElement.textContent = countdownTime;
+                countdownTime--;
+            } else {
+                // 倒计时结束，显示消息并停止计时器
+                countdownElement.style.display = 'none';
+                messageElement.style.display = 'block';
+                emj.style.display = 'block';
+
+                clearInterval(interval);
+            }
+        }
+ 
+        const interval = setInterval(updateCountdown, 100); 
+        updateCountdown();
+    </script>
+</body>
 </html>
